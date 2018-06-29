@@ -1,0 +1,68 @@
+.container {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.homepage {
+    display: flex;
+    align-items: start;
+}
+
+.list-starships {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.list-starships .thumb-starship {
+    width: 250px;
+    margin: 10px;
+}
+
+.list-starships .thumb-starship.stock-0 {
+    background-color: crimson;
+}
+
+.cart {
+    min-width: 250px;
+    background-color: lightgray;
+}
+
+.cart h2 {
+    text-align: center;
+    background-color: aliceblue;
+}
+
+.cart .cart-item {
+    border-bottom: black solid 1px;
+}
+
+.cart .cart-item h4 {
+    text-align: center;
+}
+
+.cart .cart-item .cart-item-details {
+    display: flex;
+    align-items: start;
+    padding: 5px;
+}
+
+.cart .cart-item .cart-item-details ul {
+    margin: 0;
+    padding: 0 0 0 5px;
+}
+
+.cart .cart-item .cart-item-details img {
+    width: 75px;
+}
+
+.cart .cart-item > footer {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 5px;
+}
+
+.cart > footer {
+    background-color: aliceblue;
+    text-align: center;
+    padding: 10px;
+}
