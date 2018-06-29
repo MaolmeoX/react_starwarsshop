@@ -3,13 +3,16 @@ import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 
-import {withStyles} from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import {withStyles} from '@material-ui/core/styles';
+import CircularProgress from "@material-ui/core/es/CircularProgress/CircularProgress";
+import ProductCard from "./components/ProductCard";
 
 class App extends Component {
 
@@ -29,36 +32,14 @@ class App extends Component {
     }
 
     render() {
+        const loading = (this.state.starships.length > 0) ? '' : <CircularProgress className={{color: 'primary'}}/>;
         return (
             <div className="App">
-                <Paper>
-                    <Table>
-                        <TableHead>
-                            <TableRow>
-                                <TableCell>Name</TableCell>
-                                <TableCell>Model</TableCell>
-                                <TableCell>Manufacturer</TableCell>
-                                <TableCell numeric>Price (credits)</TableCell>
-                                <TableCell numeric>length</TableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {this.state.starships.map(n => {
-                                return (
-                                    <TableRow key={n.name}>
-                                        <TableCell component="th" scope="row">
-                                            {n.name}
-                                        </TableCell>
-                                        <TableCell>{n.model}</TableCell>
-                                        <TableCell>{n.manufacturer}</TableCell>
-                                        <TableCell numeric>{n.cost_in_credits}</TableCell>
-                                        <TableCell numeric>{n.length}</TableCell>
-                                    </TableRow>
-                                );
-                            })}
-                        </TableBody>
-                    </Table>
-                </Paper>
+                {this.state.starships.map(n => {
+                    return (
+                        <ProductCard product={n}/>
+                    );
+                })}
             </div>
         );
     }
